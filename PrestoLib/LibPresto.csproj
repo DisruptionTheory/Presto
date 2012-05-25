@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{32249EF9-0A67-4FCF-8654-48124F1BD382}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Presto</RootNamespace>
+    <AssemblyName>LibPresto</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <DocumentationFile>bin\Debug\LibPresto.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Cluster.cs" />
+    <Compile Include="DataStructures\Distributed\ClusterDictionary.cs" />
+    <Compile Include="DataStructures\Distributed\ClusterDictionaryRequest.cs" />
+    <Compile Include="DataStructures\Distributed\ClusterDictionaryRequestResponse.cs" />
+    <Compile Include="DataStructures\Distributed\ClusterDictionaryResult.cs" />
+    <Compile Include="DataStructures\Distributed\ClusterDictionaryUpdate.cs" />
+    <Compile Include="DataStructures\Distributed\ClusterDictionaryValue.cs" />
+    <Compile Include="DataStructures\Distributed\Policies\ConflictResolution.cs" />
+    <Compile Include="DataStructures\Distributed\Policies\DistributionMethod.cs" />
+    <Compile Include="DataStructures\Distributed\Policies\Initialization.cs" />
+    <Compile Include="DataStructures\Distributed\Policies\UpdateInterval.cs" />
+    <Compile Include="DataStructures\DataStructures.cs" />
+    <Compile Include="DataStructures\DataStructureMessage.cs" />
+    <Compile Include="DataStructures\Distributed\AsyncResultErrorState.cs" />
+    <Compile Include="Managers\DomainProxy.cs" />
+    <Compile Include="Managers\IClusterProxy.cs" />
+    <Compile Include="Managers\IDataProxy.cs" />
+    <Compile Include="ClusterNode.cs" />
+    <Compile Include="PrestoModule.cs" />
+    <Compile Include="PrestoParameter.cs" />
+    <Compile Include="PrestoResult.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Presto.Common\Presto.Common.csproj">
+      <Project>{5CE03B15-134F-436C-9822-F41D889BBD3E}</Project>
+      <Name>Presto.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>
